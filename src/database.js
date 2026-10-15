@@ -1,8 +1,11 @@
-const connection= {
+const { getDatabaseConfig } = require("./config");
+const database = getDatabaseConfig();
+
+const connection = {
     host: database.host,
     port: database.port,
     database: database.database,
-    username: "root",
+    username: database.username,
     password: database.password
 };
 
@@ -12,7 +15,6 @@ function connect() {
     );
 
     return connection;
-
 }
 
 module.exports = {
